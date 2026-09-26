@@ -29,7 +29,7 @@ FirstMate 不是这样做的。`docs/architecture.md`「Event-driven supervision
 `AGENTS.md` 第 8 节把每一次真正传到大副手上的唤醒，按处理方式分成四种。原文：
 
 > 1. For `signal:`, read the listed event lines first, then reconcile current state only where action depends on it.
-> 2. For `stale:`, inspect the recorded endpoint and load `stuck-crewmate-recovery` for a stopped, looping, confused, or unresponsive worker.
+> 2. For `stale:`, inspect the recorded endpoint and load `stuck-crewmate-recovery` for a stopped, looping, confused, or unresponsive worker...
 > 3. For `check:`, act on the named poll result, including merges, contribution signals...
 > 4. For `heartbeat:`, review the whole fleet from the structured fleet view, reconcile suspicious tasks and PR state, update the backlog, and never report an unchanged fleet as progress.
 
