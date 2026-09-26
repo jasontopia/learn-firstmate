@@ -35,5 +35,5 @@ FirstMate（大副 / firstmate）是一个「agent distro」- 一个可移植的
 | 8  | [supervision（监督）与唤醒机制](chapters/08-supervision-and-wakeups.md)     | 大副怎么在不烧 token 的前提下盯住整支队伍，什么事件会把它叫醒，什么时候才该轮到你被打扰。      | 已写 |
 | 9  | [second mate（二副）与分工路由](chapters/09-secondmates-and-routing.md)      | 队伍变大之后怎么按领域拆出常驻的二副，一件活按什么规则路由给谁，以及哪些活必须留在主家。       | 已写 |
 | 10 | [afk 离席模式](chapters/10-afk-mode.md)                                     | 你离开键盘期间谁接手监督，离席期间它敢自己做什么、必须留着等你什么，以及你回来时怎么交接回来。 | 已写 |
-| 11 | 运行时与 harness 选择                                                        | 哪个工具在跑你的船员，运行时后端与 harness 怎么配，以及什么时候值得为一件活单独指定。          | 待写 |
+| 11 | [运行时与 harness 选择](chapters/11-harness-and-runtime-backend.md)          | 哪个工具在跑你的船员，运行时后端与 harness 怎么配，以及什么时候值得为一件活单独指定。          | 已写 |
 | 12 | [Relay](chapters/12-relay.md)                                                | 默认关闭的公开提及接入，开启它意味着授权了什么，以及哪些动作它永远不会自动替你做。             | 已写 |
