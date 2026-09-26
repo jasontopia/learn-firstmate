@@ -11,7 +11,7 @@ A pure documentation repo: a Chinese-language tutorial teaching newcomers how to
 - Write in Chinese. Give the English term alongside the Chinese one on first use (船长 / captain, 大副 / firstmate, 船员 / crewmate), then use Chinese only.
 - Every statement about how FirstMate behaves must be traceable to an authoritative tracked file in the local FirstMate checkout, read in this priority order: `AGENTS.md` (the firstmate supervisor contract), `README.md`, the relevant file under `docs/`, then the header comment of the relevant `bin/` script. Do not describe FirstMate behavior from memory or inference - if it has no source there, leave it out.
 - That checkout is READ-ONLY. Never write to it or run a state-changing command in it.
-- `data/`, `state/`, `config/`, `projects/`, and `.no-mistakes/` in that checkout are captain-private. Never use their contents as tutorial material, and never put a captain's local absolute path into this repo.
+- `.env`, `data/`, `state/`, `config/`, `projects/`, and `.no-mistakes/` in that checkout are captain-private. Never use their contents as tutorial material, and never put a captain's local absolute path into this repo.
 - Diagrams are ASCII inside a Markdown code block. No drawing dependencies.
 - Exercises must be read-only or safely reversible - never have the reader mutate someone else's repo or take an unrecoverable action.
 
