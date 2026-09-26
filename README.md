@@ -35,7 +35,3 @@ FirstMate（大副）是一个「agent distro」- 一个可移植的指令、技
 | 8   | supervision（监督）与唤醒机制                                              | 大副怎么在不烧 token 的前提下盯住整支队伍，什么事件会把它叫醒，什么时候才该轮到你被打扰。       | 待写 |
 | 9   | second mate（二副）与分工路由                                              | 队伍变大之后怎么按领域拆出常驻的二副，一件活按什么规则路由给谁，以及哪些活必须留在主家。        | 待写 |
 | 10  | afk 离席模式                                                               | 你离开键盘期间谁接手监督，离席期间它敢自己做什么、必须留着等你什么，以及你回来时怎么交接回来。  | 待写 |
-
-## 章节目录
-
-- [chapters/01-what-is-firstmate.md](chapters/01-what-is-firstmate.md) - 第 1 章：FirstMate 是什么
