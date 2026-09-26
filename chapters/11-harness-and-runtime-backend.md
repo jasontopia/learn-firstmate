@@ -6,7 +6,7 @@
 
 这两件事经常被当成一回事，其实是两个正交（orthogonal，互不影响）的旋钮：**harness** 指跑在船员那份工作副本里的具体工具本身，比如 Claude Code；**运行时后端 / runtime backend** 指这个工具跑在什么样的终端会话载体上，比如一个 tmux 窗口。这一章讲清楚三件事：harness 和运行时后端为什么是两个独立的选择，默认情况下用的是什么，以及什么时候才值得为单独一件活指定别的 harness 或后端。
 
-本章依据的权威文件是 `AGENTS.md` 第 4 节「Harness and runtime dispatch」和第 2 节「Layout and state」布局表里 `config/backend`、`config/crew-harness` 两行，以及 `bin/fm-spawn.sh` 的头部注释。每一段引用都会标出处。
+本章依据的权威文件是 `AGENTS.md` 第 4 节「Harness and runtime dispatch」和第 2 节「Layout and state」布局表里 `config/backend`、`config/crew-harness` 两行，`bin/fm-spawn.sh` 的头部注释，以及 `docs/configuration.md`「Harness support」一节。每一段引用都会标出处。
 
 ## harness 和运行时后端：两个正交的旋钮
 
@@ -26,7 +26,7 @@
 
 > runtime session-provider backend override for new tasks; LOCAL, gitignored; absent = falls through to runtime auto-detection ..., then tmux; tmux is the verified reference backend, herdr has its own required CI lane, while zellij, orca, and cmux remain experimental with no dedicated real-backend CI lane
 
-翻译过来：运行时后端管的是这个工具被塞进什么样的终端会话容器里去跑 - tmux 窗口是这里的参照实现（verified reference backend），herdr 有自己独立的必需 CI 测试通道，而 zellij、orca、cmux 目前还是实验性的，没有专门的真实后端 CI 通道兜底。这份清单本身，跟上面 harness 那份清单，是两份完全不相干的名单：同一个 harness 能配不同的后端，同一个后端也能承载不同的 harness，不存在「选了这个 harness 就只能配那个后端」这种绑定关系。
+翻译过来：运行时后端管的是这个工具被塞进什么样的终端会话容器里去跑 - tmux 窗口是这里的参照实现（verified reference backend），herdr 有自己独立的必需 CI 测试通道，而 zellij、orca、cmux 目前还是实验性的，没有专门的真实后端 CI 通道兜底。这份清单本身，跟上面 harness 那份清单，是两份完全不相干的名单：`--harness` 和 `--backend` 这两个旋钮各自独立配置，改一个不需要跟着改另一个。但这不等于任意组合都能跑起来 - `fm-spawn` 在派出前仍会校验具体的 harness / 后端组合，遇到不支持的组合会直接拒绝。`docs/configuration.md`「Harness support」一节记录了一个具体例子：`fm-spawn.sh` 会在 preflight 阶段拒绝把 kimi 派到 cmux 或 Orca 后端上，因为回答 kimi 的 folder-trust 对话框需要一种这两个后端都不具备的、经过验证的仅视口（viewport-only）捕获能力。
 
 ## 默认情况下用什么
 
