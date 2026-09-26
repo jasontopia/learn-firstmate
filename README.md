@@ -32,7 +32,7 @@ FirstMate（大副 / firstmate）是一个「agent distro」- 一个可移植的
 | 5  | [PR 与合并权限](chapters/05-pr-merge-authority.md)                           | 为什么默认必须你点头才合并，yolo 姿态放开了什么、没放开什么，以及红色 CI 为什么依然不能合。    | 已写 |
 | 6  | [scout（侦察）任务与调查报告](chapters/06-scout-tasks-and-reports.md)       | 什么时候该派侦察而不是直接开工，报告长什么样、存在哪里，以及一份报告为什么不等于动工的授权。   | 已写 |
 | 7  | [backlog（工单）与船长决策](chapters/07-backlog-and-captain-decisions.md)    | 工单队列怎么记录在办和待办的活，一个等你拍板的决策为什么本身也是一张工单，以及它怎么被关闭。   | 已写 |
-| 8  | supervision（监督）与唤醒机制                                                | 大副怎么在不烧 token 的前提下盯住整支队伍，什么事件会把它叫醒，什么时候才该轮到你被打扰。      | 待写 |
+| 8  | [supervision（监督）与唤醒机制](chapters/08-supervision-and-wakeups.md)     | 大副怎么在不烧 token 的前提下盯住整支队伍，什么事件会把它叫醒，什么时候才该轮到你被打扰。      | 已写 |
 | 9  | [second mate（二副）与分工路由](chapters/09-secondmates-and-routing.md)      | 队伍变大之后怎么按领域拆出常驻的二副，一件活按什么规则路由给谁，以及哪些活必须留在主家。       | 已写 |
 | 10 | [afk 离席模式](chapters/10-afk-mode.md)                                     | 你离开键盘期间谁接手监督，离席期间它敢自己做什么、必须留着等你什么，以及你回来时怎么交接回来。 | 已写 |
 | 11 | 运行时与 harness 选择                                                        | 哪个工具在跑你的船员，运行时后端与 harness 怎么配，以及什么时候值得为一件活单独指定。          | 待写 |
