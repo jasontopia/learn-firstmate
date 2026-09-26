@@ -4,7 +4,7 @@
 
 第 6 章讲了侦察任务怎么产出一份报告，第 7 章讲了工单队列怎么记录在办和待办的活、以及一个决策本身怎么变成一张工单。这两章都是从**一件活**的角度看问题。这一章把镜头拉远：当队伍里同时有好几件活在跑的时候，大副 / firstmate 怎么盯住整支船员 / crewmate 队伍，而不需要为了「盯着」这件事本身持续消耗 token。
 
-这一章只回答三个问题：大副是怎么在没有事情发生的时候完全不跑、不烧 token 的；几种唤醒（wake）事件分别代表什么；唤醒之后，哪些事大副自己按规矩就能拍板，哪些才轮到船长 / captain 被打扰。二副 / second mate 怎么帮大副分担这些监督工作，是下一章的内容，这里不展开。
+这一章只回答三个问题：大副是怎么在没有事情发生的时候完全不跑、不烧 token 的；几种唤醒（wake）事件分别代表什么；唤醒之后，哪些事大副自己按规矩就能拍板，哪些才轮到船长 / captain 被打扰。二副 / secondmate 怎么帮大副分担这些监督工作，是下一章的内容，这里不展开。
 
 本章依据的权威文件：FirstMate 仓库 `AGENTS.md` 第 8 节「Supervision protocol」和第 9 节「Escalation and captain etiquette」，以及 `docs/architecture.md` 里「Event-driven supervision」一节和 `bin/fm-watch.sh`、`bin/fm-crew-state.sh` 的头部注释。每个小节会指出具体出处。
 
