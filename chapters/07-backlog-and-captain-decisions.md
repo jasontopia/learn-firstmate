@@ -12,7 +12,7 @@
 
 `AGENTS.md` 第 10 节开头就定了 backlog 的位置：「The configured `tasks-axi` backend is the durable queue... It tracks work items only, never agents; persistent secondmates never appear as backlog items.」
 
-翻成大白话：backlog（工单队列）是这支队伍手上所有活的**持久记录**，靠 `tasks-axi` 这套工具管理，落地文件默认是 `data/backlog.md`。它记的是**活本身**，不是船员这个人 —— 一个常驻的二副（secondmate）永远不会作为一个条目出现在这份队列里，队列里的每一行是一件事，不是一个人。
+翻成大白话：backlog（工单队列）是这支队伍手上所有活的**持久记录**，靠 `tasks-axi` 这套工具管理，落地文件默认是 `data/backlog.md`。它记的是**活本身**，不是船员这个人 —— 一个常驻的二副 / secondmate 永远不会作为一个条目出现在这份队列里，队列里的每一行是一件事，不是一个人。
 
 一件活在队列里只会落在三档之一，出处是 `docs/configuration.md`「Backlog backend」一节：「On the default markdown adapter, tasks-axi and manual edits produce the same `## In flight`, `## Queued`, and `## Done` sections.」
 
