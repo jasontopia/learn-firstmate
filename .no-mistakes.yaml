@@ -1,0 +1,20 @@
+# Per-repo no-mistakes overrides for learn-firstmate.
+#
+# This is a prose tutorial repo: there is no application to build and nothing to
+# unit-test, so the single canonical check is the markdown doc check.
+# scripts/check-docs.py owns its definition - relative link integrity plus three
+# formatting-hygiene rules - and is stdlib-only python3, so CI needs no package
+# installation step and makes no network requests.
+#
+# Both the lint and test slots are pinned to that same command because this repo
+# has exactly one check to run and `no-mistakes ci-workflow` requires both slots
+# to be set. The check takes well under a second, so running it twice in the one
+# CI job is cheaper than inventing a second, less honest check to fill the slot.
+#
+# .github/workflows/ci.yml is generated from this file with
+# `no-mistakes ci-workflow`. Regenerate it rather than hand-editing when these
+# commands change, so the local gate and GitHub CI can never disagree. The one
+# post-generation edit the workflow carries is documented in a comment inside it.
+commands:
+  lint: 'python3 scripts/check-docs.py'
+  test: 'python3 scripts/check-docs.py'

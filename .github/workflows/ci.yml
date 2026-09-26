@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # `no-mistakes ci-workflow` emits an actions/setup-go step unconditionally.
+      # learn-firstmate is a prose repo with no go.mod, so that step fails on
+      # every run; the pinned checks only need the runner's stock python3.
+      # Removed by hand after generation - regenerate with
+      # `no-mistakes ci-workflow --force` and drop this step again.
+
+      - name: Lint
+        run: |
+          python3 scripts/check-docs.py
+
+      - name: Test
+        run: |
+          python3 scripts/check-docs.py
