@@ -4,7 +4,7 @@ FirstMate 的中文入门教程与动手练习。
 
 ## 这个仓库是什么
 
-FirstMate（大副 / firstmate）是一个「agent distro」- 一个可移植的指令、技能、工具、策略与状态约定的目录，它把一个通用的编码 agent 变成一个专门的 agent。你只跟一个 agent 对话，它替你调度和监督一整支 agent 船员（crewmate）队伍，最后把可以合并的 PR、已批准的本地合并，或者独立的调查报告交到你手上。
+FirstMate（大副 / firstmate）是一个「agent distro」- 一个可移植的指令、技能、工具、策略与状态约定的目录，它把一个通用的编码 agent 变成一个专门的 agent。你只跟一个 agent 对话，它替你调度和监督一整支 agent 船员 / crewmate 队伍，最后把可以合并的 PR、已批准的本地合并，或者独立的调查报告交到你手上。
 
 这个仓库不是 FirstMate 本身，而是学它的地方。它把 FirstMate 的每一项功能拆成一节，每节先讲清楚这项功能解决什么问题、它的规矩是什么，再给一个你可以真的让 FirstMate 跑一遍的练习。目标很直接：读完并做完之后，你能把这些做法直接用在自己的真实项目上。
 
@@ -33,7 +33,7 @@ FirstMate（大副 / firstmate）是一个「agent distro」- 一个可移植的
 | 6  | [scout（侦察）任务与调查报告](chapters/06-scout-tasks-and-reports.md)       | 什么时候该派侦察而不是直接开工，报告长什么样、存在哪里，以及一份报告为什么不等于动工的授权。   | 已写 |
 | 7  | [backlog（工单）与船长决策](chapters/07-backlog-and-captain-decisions.md)    | 工单队列怎么记录在办和待办的活，一个等你拍板的决策为什么本身也是一张工单，以及它怎么被关闭。   | 已写 |
 | 8  | [supervision（监督）与唤醒机制](chapters/08-supervision-and-wakeups.md)     | 大副怎么在不烧 token 的前提下盯住整支队伍，什么事件会把它叫醒，什么时候才该轮到你被打扰。      | 已写 |
-| 9  | [second mate（二副）与分工路由](chapters/09-secondmates-and-routing.md)      | 队伍变大之后怎么按领域拆出常驻的二副，一件活按什么规则路由给谁，以及哪些活必须留在主家。       | 已写 |
+| 9  | [二副 / secondmate 与分工路由](chapters/09-secondmates-and-routing.md)      | 队伍变大之后怎么按领域拆出常驻的二副，一件活按什么规则路由给谁，以及哪些活必须留在主家。       | 已写 |
 | 10 | [afk 离席模式](chapters/10-afk-mode.md)                                     | 你离开键盘期间谁接手监督，离席期间它敢自己做什么、必须留着等你什么，以及你回来时怎么交接回来。 | 已写 |
 | 11 | [运行时与 harness 选择](chapters/11-harness-and-runtime-backend.md)          | 哪个工具在跑你的船员，运行时后端与 harness 怎么配，以及什么时候值得为一件活单独指定。          | 已写 |
 | 12 | [Relay](chapters/12-relay.md)                                                | 默认关闭的公开提及接入，开启它意味着授权了什么，以及哪些动作它永远不会自动替你做。             | 已写 |

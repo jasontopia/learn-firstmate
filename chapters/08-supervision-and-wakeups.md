@@ -131,4 +131,4 @@ state: <working|parked|done|blocked|paused|failed|unknown> · source: <run-step|
 
 ## 下一章
 
-第 9 章讲**second mate（二副）与分工路由**：队伍变大之后怎么按领域拆出常驻的二副，一件活按什么规则路由给谁，以及哪些活必须留在主家。
+第 9 章讲**二副 / secondmate 与分工路由**：队伍变大之后怎么按领域拆出常驻的二副，一件活按什么规则路由给谁，以及哪些活必须留在主家。
