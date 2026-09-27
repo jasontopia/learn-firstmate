@@ -9,6 +9,8 @@ A pure documentation repo: a Chinese-language tutorial teaching newcomers how to
 ## Writing rules
 
 - Write in Chinese. Give the English term alongside the Chinese one on first use (船长 / captain, 大副 / firstmate, 船员 / crewmate), then use Chinese only.
+- Translate every term exactly as `GLOSSARY.md` does, one rendering per term across the whole book. It is the only copy of the term table: add a new term there rather than coining a rendering inline.
+- Match the plain style of `chapters/01-what-is-firstmate.md`: short plain sentences, no translationese, no filler or repeated points, sources noted once per chapter or section rather than per sentence.
 - Every statement about how FirstMate behaves must be traceable to an authoritative tracked file in the local FirstMate checkout, read in this priority order: `AGENTS.md` (the firstmate supervisor contract), `README.md`, the relevant file under `docs/`, then the header comment of the relevant `bin/` script. Do not describe FirstMate behavior from memory or inference - if it has no source there, leave it out.
 - That checkout is READ-ONLY. Never write to it or run a state-changing command in it.
 - `.env`, `data/`, `state/`, `config/`, `projects/`, and `.no-mistakes/` in that checkout are captain-private. Never use their contents as tutorial material, and never put a captain's local absolute path into this repo.
