@@ -18,7 +18,7 @@
 
 > `state/.afk-contract` is the away posture, written in the same turn as `/afk` before any other work, because `/afk` is itself the go: no read-back gates entry or waits for a go; entry announces hold-for-return only, and the away session acts on those words by its own judgment through the guarded scripts under standing authority, holding for the return on doubt.
 
-意思是：你说 `/afk` 加上你交代的话，本身就是「开始」，不是「请你批准」。大副会在同一轮、做任何别的事之前，先把你的话原样记下来（`state/.afk-contract`），因为再等你确认，你可能已经走了、看不到屏幕了。它接着会告诉你：没把握的事会留着等你回来。这只是告知，不是在等你点头，你的话说完就已经生效。
+意思是：你说 `/afk` 加上你交代的话，本身就是「开始」，不是「请你批准」。大副会在同一轮、做任何别的事之前，先把你的话原样记下来（`state/.afk-contract`），因为再等你确认，你可能已经走了、看不到屏幕了。它接着会告诉你：没把握的事会留着等你回来。然后它用自己的话把你交代的内容复述一遍，说明哪句话离席期间做不了。这些只是告知，不是在等你点头，你的话说完就已经生效。如果它理解错了，你再发一次 `/afk` 加上新的话就行。
 
 ## 离席期间大副能做到哪一步
 
@@ -71,7 +71,7 @@
 **你应该看到**
 
 - 第一问：由一个专门的守护进程接管监督，不会再另外启动一个监控脚本。
-- 第二问：说完就生效，已经记下来了，不等你确认。它之后告诉你的话只是告知，不是在等你点头。
+- 第二问：说完就生效，已经记下来了，不等你确认。它之后复述你的话只是告知，不是在等你点头；理解错了，你再发一次 `/afk` 纠正。
 - 第三问：走完流水线、按原来节奏推进，是你的话管得到的，也走的是本来就允许的流程，它会自己判断往下推，不会特意来问你。但强推、覆盖别人历史是有破坏性、不可逆的操作，不会因为你那句话就放开，它会留着等你回来。
 - 第四问：它会先把离席期间的事交代清楚，交代完才把「现在几点了」当普通问题回答。它还会指出，如果是监督机制内部发来的、带标记的消息，就不算你回来，不会触发交接。
 - 说明出处：`AGENTS.md` 第 8 节「Away-mode and quiet-mode stub」，以及 `/afk` 技能。

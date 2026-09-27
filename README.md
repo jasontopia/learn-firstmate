@@ -33,7 +33,7 @@ FirstMate 是一个「agent 发行版」（agent distro）：一个目录，里�
 | 6  | [调研任务与报告](chapters/06-scout-tasks-and-reports.md)     | 什么时候该先调研，报告放在哪里，为什么报告本身不等于同意动手改。           |
 | 7  | [待办队列与船长决策](chapters/07-backlog-and-captain-decisions.md) | 待办队列怎么记活，等你拍板的问题为什么也是一张工单，你的回答怎么关掉它。 |
 | 8  | [监督与唤醒](chapters/08-supervision-and-wakeups.md)         | 大副怎么在不耗 token 的情况下盯住队伍，什么事会叫醒它，什么事才来找你。    |
-| 9  | [二副与分派](chapters/09-secondmates-and-routing.md)         | 队伍大了以后怎么按领域设常驻的二副，一件活怎么分给谁，哪些活留在大副这边。 |
+| 9  | [二副与分派](chapters/09-secondmates-and-routing.md)         | 队伍大了以后怎么按领域设常驻的二副，一件活怎么分派（routing）给谁，哪些活留在大副这边。 |
 | 10 | [离席模式（afk）](chapters/10-afk-mode.md)                   | 你走开时谁来监督，大副能自己做什么、必须等你什么，你回来时怎么交接。       |
 | 11 | [harness 与运行时后端](chapters/11-harness-and-runtime-backend.md) | 船员是用什么工具、在什么终端里跑的，默认怎么选，什么时候值得单独指定。   |
 | 12 | [Relay](chapters/12-relay.md)                                | 默认关着的公开提及功能，打开它等于同意了什么，哪些事它永远不会自己做。     |

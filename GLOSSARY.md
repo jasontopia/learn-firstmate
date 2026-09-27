@@ -51,6 +51,7 @@
 | primary checkout | 主仓库目录 |
 | isolation assertion | 隔离检查 |
 | endpoint | 会话窗口 |
+| primary session | 主会话 |
 | home（firstmate home） | FirstMate 目录 |
 | main home | 主 FirstMate 目录 |
 | harness | harness（跑船员的 agent 工具，比如 Claude Code） |
