@@ -1,91 +1,82 @@
-# 第 6 章：scout（侦察）任务与调查报告
+# 第 6 章：调研任务与报告
 
 ## 这一章讲什么
 
-第 2 到 5 章沿着**一件活**的旅程往下走：一句话怎么变成工单、船员怎么在隔离工作副本里干活、质检流水线怎么把关、PR 怎么等你点头合并。这些活有一个共同前提：它们都是**去改代码**的活。
+第 2 到 5 章讲的都是要改代码的活：怎么提出，船员在工作树里怎么干，流水线怎么查，PR 怎么等你同意合并。
 
-这一章开始换一条线。第 6 到 8 章讲的是从单件活扩展到一支队伍要处理的事，而这条线的第一站，是回到立项那一刻的一个分岔口：这件活到底该不该去改代码。大副 / firstmate 会把每一件请求归成两种形态之一 - **ship**（出活）或者**scout**（侦察）。第 2 章已经带过这个分岔口一句，这一章把镜头完全对准它：什么信号该选侦察，什么时候不该选，侦察的产出长什么样、存在哪里，以及 - 最重要的一条 - 一份调查报告本身为什么从来不等于「去改代码」的授权。
+从这一章开始，第 6 到 8 章讲活多了以后要处理的事。先回到立项时的一个选择：这件活到底要不要改代码。大副 / firstmate 会把每件活归成两类之一：交付任务（ship）或调研任务（scout）。第 2 章简单提过，这一章细讲：什么情况该先调研，什么情况不该，报告长什么样、放在哪里，以及为什么一份报告本身不等于同意改代码。
 
-本章依据的权威文件是 `AGENTS.md` 第 7 节「Intake and authority」和「Scout outcome and promotion」两个小节，以及第 2 节的布局表。每一段引用都会标出处。
+本章依据 FirstMate 仓库 `AGENTS.md` 第 7 节的「Intake and authority」和「Scout outcome and promotion」两个小节，以及第 2 节的目录说明。
 
-## ship 与 scout：两种产出形态
+## 交付任务和调研任务
 
-`AGENTS.md` 第 7 节「Intake and authority」原文：
+**交付任务**是默认的，产出是对项目的改动，按选定的交付方式交付，最后是一个 PR 或一次本地合并。一旦你同意动手，大副就直接派交付任务。还剩一些范围明确的调查，就在这件交付任务里顺手做掉，除非还没弄清的问题可能明显影响要不要做、做成什么样。
 
-> Ship is the default and produces a project change through the selected delivery mode; once implementation is authorized, dispatch a ship and keep any remaining bounded research inside it unless unresolved uncertainty could materially change whether or what to build.
-> Scout produces knowledge in `data/<id>/report.md`, never a PR, and is appropriate for investigation, diagnosis, planning, reproduction, or audit work when the captain explicitly requests a separate knowledge or design deliverable or unresolved uncertainty could materially change whether or what to build.
+**调研任务**产出的是知识：一份写在 `data/<id>/report.md` 的报告，从不开 PR。适合调查、诊断、规划、复现问题、审计这类工作，满足下面任意一条时才派：
 
-翻成大白话：**ship**（出活）是默认选项，产出的是一个真实的项目改动，走你选定的交付路径，最后落成一个 PR（或者本地合并）。一旦这件活已经被授权去实现，大副就直接派出一件 ship，而且但凡还剩下一点边界不清楚的调查工作，只要它不足以动摇「要不要做、做成什么样」这个大方向，就留在这件 ship 内部顺手做掉 - 不会为了一点小的不确定性另外再拆出一件侦察活。
+- 你明确要一份单独的报告或设计。
+- 还有没弄清的问题，可能明显影响要不要做、做成什么样。
 
-**scout**（侦察）产出的不是项目改动，而是知识：一份写在 `data/<id>/report.md` 里的调查报告，永远不会开 PR。适合的场景是调查、诊断、规划、复现、审计这类工作，触发条件是两个之一：要么你明确要一份单独的知识或设计产出，要么眼下还有一处**不确定性大到可能改变要不要做、或者做成什么样**。
+判断标准是这个问题会不会明显影响要不要做、做成什么样，而不是「这事看起来有点复杂」或者「想先探探路」。普通的、范围明确的调查，比如去读一下某个模块现在怎么实现的，留在交付任务里做就行，不用单独派调研。
 
-这个「不确定性是否足以改变方向」是判断该不该派侦察的核心标尺，而不是「这件事看起来有点复杂」或者「我想让人先探探路」。一件活里普通的、边界清楚的调查 - 比如去读一下某个模块现在怎么实现的 - 是留在 ship 里顺手做的事，不构成单独派侦察的理由。
+## 什么时候不该派调研
 
-## 什么时候不该派侦察
+同一小节还说了哪些情况不该派调研：
 
-比「什么时候该派侦察」更容易被忽略的，是「什么时候不该」。同一节接着写：
+- **已有的证据能回答你的问题，就直接告诉你。** 现成的报告、读一下代码、已有的结论够用的话，大副直接回答，不会再派一次调研把同一件事重查一遍。
+- **你还没想好要不要改，就先问你一句。** 大副会先回答你，需要时再问一个简短的问题，不会先派人去做一套设计方案。
+- **不会一边给你一个多半就是对的方案，一边又派人去做一次不会改变这个方案的设计调研。**
 
-> If established evidence already answers an informational question, relay it without a design-only scout; when implementation intent is unclear, answer and ask one concise implementation question when useful rather than dispatching speculative design work. Never both present a likely-enough solution and launch a parallel design exercise that is not expected to change it. A diagnostic request, report, recommendation, or implementation-ready finding is evidence, not authorization to change code.
+归结起来就是一句话：诊断请求、报告、建议，哪怕是一个已经可以直接动手的结论，都只是参考信息，不等于同意改代码。报告告诉你「情况是这样」，但不会替你说「那就照着改」。
 
-拆成三条：
+## 报告长什么样、放在哪里
 
-- **已有的证据已经能回答你的问题时，不要为了走流程再派一次纯设计性的侦察。** 如果一份现成的报告、一次代码阅读、或者既定的结论已经够用，大副应该直接把答案讲给你听，而不是把同一个问题再包装成一件新的侦察工单去重新调查一遍。
-- **你的实现意图还不清楚时，该做的是问你一句简洁的话，而不是先斩后奏地去跑一次投机性的设计调查。** 「这东西该怎么改」如果连要不要改都还没定，大副的动作是问，不是先派一支队伍把方案设计出来等你看。
-- **不能一边给你一个大概率就是对的方案，一边又平行跑一次预期不会改变这个方案的设计侦察。** 这是在浪费一支队伍的产能去确认一件已经足够确定的事。
+`AGENTS.md` 第 2 节对报告的说明是："scout task deliverable, written by the crewmate; survives teardown"。意思是：报告放在 `data/<id>/report.md`，由做这件调研的船员 / crewmate 写，收尾清理之后还在。
 
-这三条背后是同一句话：**一份诊断请求、一份报告、一条建议、或者一个已经具备实现条件的发现，都是证据，不是「去改代码」的授权。** 报告能告诉你「情况是这样」，但从来不能替你说出「所以照着做」。
+报告和船员的工作树是两回事。工作树是船员干活用的临时地方，活干完就收尾清理掉；报告是留下来的东西。
 
-## 报告长什么样，存在哪里
+「Scout outcome and promotion」小节规定了先后顺序：调研做完，必须先留下一份内容完整、单独能看懂的报告，才能清理它的工作树。大副读完报告，把结论告诉你，把这份报告记成这张工单的成果，再重新看一遍待办队列：有了新结论，有些活可能可以开始了。
 
-`AGENTS.md` 第 2 节的布局表这样定义侦察的产出物：
+报告可以建议怎么改，但不代表同意改。
 
-> `<id>/report.md` scout task deliverable, written by the crewmate; survives teardown
+## 报告怎么变成交付任务
 
-拆开看有两层意思。第一层是位置和作者：报告写在这件侦察任务自己的 `data/<id>/report.md` 里，由执行这件侦察的船员 / crewmate 写出来。第二层，也是容易被忽略的一层：**报告跟船员的工作副本不是一回事**。工作副本是船员干活用的临时地方 - 一份一次性的、隔离的 git 检出，事情办完之后会被收回（teardown）；报告是留下来的东西，工作副本被收回之后，报告依然在。
+你看完报告，决定照着改，大副不会另开一张新工单重新调查一遍。同一小节规定：你另外同意动手之后，大副用 `bin/fm-promote.sh` 把这件调研转成交付任务。
 
-`AGENTS.md` 第 7 节「Scout outcome and promotion」把这个先后顺序钉得更死：
+「另外同意」是关键：调研做完时并没有带着动手的授权，要你看完报告再说一句「照着改」才算。
 
-> A completed scout must leave a self-contained report before its scratch worktree can be discarded; read and relay its findings, record the report as the Done artifact, and re-evaluate the queue. A report may recommend implementation but does not authorize it.
+转成交付任务时，船员要先清点调研时留下的临时改动，回到一个干净的、基于默认分支的起点，只带上真正要用的修复，再建交付分支，按项目选定的交付方式走下去。调研时的草稿提交和调试改动都不带过去；调研时复现过的 bug，要变成一条回归测试。
 
-也就是说，一件侦察任务的工作副本能不能被收回，前提是这份**自成一体**的报告已经写好并留下 - 报告写不出来，工作副本就不能被扔掉。大副读完报告、把结论转述给你、把这份报告记成这件工单的 Done 产物，再重新评估队列里还有哪些活因为这份新知识而值得动一动。而这份报告，即便它明确建议了「应该这么实现」，也依然不构成授权 - **一份报告可以推荐实现，但不能授权实现**。
-
-## 报告变成活：promotion，而不是重新立项
-
-一份侦察报告读完之后，如果你确实决定照着做，下一步不是让大副凭空立一件新的 ship 工单去重复调查一遍。同一节接着写：
-
-> When implementation is separately authorized, promote the existing scout through `bin/fm-promote.sh` rather than creating a duplicate task. The promoted worker must inventory scratch state, return to a clean default-branch base, carry over only intended fix changes, create the ship branch, and follow the project's selected delivery path while leaving scratch commits and debug edits behind and turning a reproduced bug into the regression test.
-
-这里的关键词是「separately authorized」- **单独**授权。侦察本身完成时并没有带着实现的授权；你读完报告，另外说一句「照着做」，这件事才算被单独授权。授权之后，大副走的是 `bin/fm-promote.sh` 把这件已有的侦察**提升**成一件 ship，而不是另开一件新工单去凭空重做一遍。这个提升过程本身也有讲究：被提升的船员要先清点自己在侦察阶段留下的临时状态，退回到一份干净的默认分支基线，只把真正要带进实现里的改动搬过来，再开一条新的 ship 分支，照选定的交付路径走下去 - 侦察阶段的草稿提交、调试用的临时改动都留在原地不带过来；如果侦察阶段复现过一个 bug，那次复现要在提升之后变成一条回归测试，而不是原样搬过去的调试脚本。
-
-打一个比方（下面这段是**假设的场景**，不是这个仓库里真实发生过的事，纯粹用来帮你建立直觉）：假设你怀疑某个接口偶尔超时，但不确定是网络问题还是代码里某处死锁，你让大副派一支队伍去查。这支队伍最后交给你的是一份报告，写着「复现到了，是第 43 行那把锁在特定顺序下会死锁，建议这样改」。你读完这份报告，这一刻你手上有的是一个**结论**，还没有任何代码改动发生。你说「那就照这个改」之后，大副才会把这件侦察提升成一件 ship，由船员把死锁复现步骤变成一条回归测试，再实现修复，走质检流水线，开 PR。报告本身，从头到尾都没有直接产出任何项目改动。
+举个假设的例子，帮你建立直觉：你怀疑某个接口偶尔超时，但不知道是网络问题还是代码里有死锁，就让大副派人去查。交回来的是一份报告：「复现了，第 43 行那把锁在特定顺序下会死锁，建议这样改。」这时你手上只有一个结论，代码一行没动。你说「照这个改」之后，大副才把这件调研转成交付任务，由船员把复现步骤写成回归测试，再做修复，走流水线，开 PR。报告本身从头到尾没有改过项目。
 
 ## 动手练习
 
-下面的练习是**只读**的：只是让大副读取信息、做推理并汇报，不会创建工单、不会派出真正的船员、不会改动任何被版本追踪的文件，也不会做任何不可回退的操作。你随时可以停下。
+这个练习是只读的：只让大副推演和汇报，不登记工单，不派船员，不改被 git 追踪的文件。
 
-做练习前，先在你的 FirstMate 目录里启动一个 primary 会话，这样你面前的这个 agent 就是你的大副。
+开始前，在你的 FirstMate 目录里启动一个主会话，这个会话里的 agent 就是你的大副。
 
-### 练习：拿三句话分别试一次 ship / scout 判断
+### 练习：用三句话测试交付和调研的判断
 
 对大副说：
 
-> 大副，我要试一下你立项时怎么在 ship 和 scout 之间判断，不是真的要你干活。我依次给你三句话，请你对每一句话分别说清楚：你会把它归成 ship 还是 scout，理由是什么，以及如果归成 scout，报告最后会落在哪个文件里。第一句：「我们那个登录接口好像偶尔会超时，原因不知道，你先别改，帮我查清楚是哪里的问题，写份报告给我」。第二句：「刚才那份关于登录超时的报告我看完了，就按报告里建议的方案改」。第三句：「README 里现在有没有提到这个项目支持 Windows，直接告诉我就行」。这只是一次推演，不要真的创建工单，也不要派任何船员。
+> 大副，我想看看你立项时怎么在交付任务和调研任务之间判断，不是真要你干活。下面三句话，请分别说你会归成哪一类、为什么，如果是调研任务，报告会放在哪个文件。第一句：「登录接口好像偶尔会超时，原因不知道，先别改，帮我查清楚是哪里的问题，写份报告给我。」第二句：「刚才那份登录超时的报告我看完了，就按报告里建议的方案改。」第三句：「README 里现在有没有写这个项目支持 Windows？直接告诉我就行。」只推演，不要登记工单，也不要派船员。
 
-**预期会看到什么**
+**你应该看到**
 
-- 第一句：归成 scout，理由是原因不明、且这处不确定性会实质影响该怎么修 - 这正是派侦察的触发条件；它会说出报告会落在 `data/<id>/report.md`，并且指出这件事完成后工作副本会被收回、但报告会留下来。
-- 第二句：归成 ship，理由是报告已经给出结论、你也明确说了「照着做」，这是一次独立的授权；它会提到这一步走的是 `bin/fm-promote.sh` 把已有的侦察提升成 ship，而不是另开一件新工单重新调查。
-- 第三句：它会指出这是一个已有证据（README 本身）就能直接回答的问题，应该直接把答案讲给你听，不需要派任何侦察去调查。
-- 三句话的判断都会点出处：`AGENTS.md` 第 7 节「Intake and authority」和「Scout outcome and promotion」。
+- 第一句：调研任务。原因不明，而且会影响怎么修，正是该调研的情况。报告放在 `data/<id>/report.md`，调研做完后工作树会清理掉，报告会留下。
+- 第二句：交付任务。报告已经给出结论，你也明确说了照着改，这是单独的一次同意。它会提到用 `bin/fm-promote.sh` 把原来的调研转成交付任务，不另开新工单重新查。
+- 第三句：不用派任何任务。README 本身就能回答，直接告诉你就行。
+- 说明出处：`AGENTS.md` 第 7 节「Intake and authority」和「Scout outcome and promotion」。
 
-**怎么判断做成了**
+**怎么检查**
 
-三个都满足才算：三句话的 ship/scout 归类都对，且理由讲的是「不确定性是否会改变要不要做、做成什么样」而不是「事情听起来复杂/简单」；它准确讲出了报告的位置和「报告不等于授权，需要你另外说一句才会提升成 ship」这条边界；以及 - 最关键的 - 它**没有创建任何工单，也没有派出任何船员**，你可以直接看一眼有没有新开的会话窗口来确认。
+- 三句话的归类都对，理由是「这个问题会不会明显影响要不要做、做成什么样」，而不是「听起来复杂还是简单」。
+- 讲对了报告放在哪里，也讲清了报告不等于同意动手，要你另外说一句才会转成交付任务。
+- 没有登记工单，也没有多出新的船员窗口。
+- 跟第 1 章一样，提问前后各跑一次 `git status --short` 和 `git diff HEAD`，输出应该一样。
 
-文件层面的验证办法跟前几章一样，**前后对比**：提问之前在 FirstMate 目录里跑一次 `git status --short` 和 `git diff HEAD`，把两份输出都留着；问完之后再各跑一次，两次应该完全一样。`data/`、`state/`、`config/`、`projects/`、`.no-mistakes/` 是大副私有的运行状态，被 gitignore 掉了，这两条命令本来也看不见，会话期间写这些不算数。
-
-如果它把第二句也判断成了需要重新派一件侦察，或者把第一句直接当成了可以动手改代码的授权，那就是没做成。
+如果它说第二句还要再派一次调研，或者把第一句当成了可以直接改代码的授权，就算没做成。
 
 ## 下一章
 
-第 7 章讲**backlog（工单）与船长决策**：工单队列怎么记录在办和待办的活，一个等你拍板的决策为什么本身也是一张工单，以及它怎么被关闭。
+第 7 章讲待办队列与船长决策：待办队列怎么记活，等你拍板的问题为什么也是一张工单，你的回答怎么关掉它。
