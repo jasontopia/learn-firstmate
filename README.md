@@ -37,3 +37,9 @@ FirstMate 是一个「agent 发行版」（agent distro）：一个目录，里�
 | 10 | [离席模式（afk）](chapters/10-afk-mode.md)                   | 你走开时谁来监督，大副能自己做什么、必须等你什么，你回来时怎么交接。       |
 | 11 | [harness 与运行时后端](chapters/11-harness-and-runtime-backend.md) | 船员是用什么工具、在什么终端里跑的，默认怎么选，什么时候值得单独指定。   |
 | 12 | [Relay](chapters/12-relay.md)                                | 默认关着的公开提及功能，打开它等于同意了什么，哪些事它永远不会自己做。     |
+
+## 参考资料
+
+参考资料不是章节，是某一天的调研快照，不配练习。里面的行号和数据只对应它当时读的版本。
+
+- [agent-skills 对 FirstMate 有没有用（2026-09-28）](references/agent-skills-evaluation-2026-09-28.md)：`addyosmani/agent-skills` 的九个命令、六个阶段和 25 个 skill，按编排、交付验证、工程纪律、产品定义四层看它和 FirstMate 哪里重叠、互补、冲突，船员怎样在项目里挑着装这些 skill，和 Superpowers、Spec Kit、OpenSpec、Kiro、BMAD 等方案的对比，以及推荐做法。
