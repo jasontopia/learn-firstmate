@@ -43,3 +43,4 @@ FirstMate 是一个「agent 发行版」（agent distro）：一个目录，里�
 参考资料不是章节，是某一天的调研快照，不配练习。里面的行号和数据只对应它当时读的版本。
 
 - [agent-skills 对 FirstMate 有没有用（2026-09-28）](references/agent-skills-evaluation-2026-09-28.md)：`addyosmani/agent-skills` 的九个命令、六个阶段和 25 个 skill，按编排、交付验证、工程纪律、产品定义四层看它和 FirstMate 哪里重叠、互补、冲突，船员怎样在项目里挑着装这些 skill，和 Superpowers、Spec Kit、OpenSpec、Kiro、BMAD 等方案的对比，以及推荐做法。
+- [先做哪个 AI 工具小网站（2026-09-29）](references/ai-tool-site-research-2026-09-29.md)：拿核实过的收入数据检验 2026 年「小工具赚钱」的说法，定选题标准和打分，约 27 个候选方向的淘汰理由，6 个入围方向的对比，以及推荐方向 AI 扒谱网站的关键词、竞品、MVP 范围、技术路线、单位经济、获客、风险和下一步。
