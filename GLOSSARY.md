@@ -72,6 +72,18 @@
 | away mode / afk | 离席模式（afk） |
 | quiet mode | 静默模式 |
 | return (from afk) | 回来 |
+| supervision host | 监督宿主 |
+
+## 命令与技能
+
+| 英文原词 | 译法 |
+| --- | --- |
+| skill | 技能 |
+| slash command | 斜杠命令 |
+| agent-only reference skill | 大副专用技能 |
+| digest | 摘要 |
+| board（Lavish board） | 看板 |
+| completion receipt | 回执 |
 
 ## 分派与 Relay
 
