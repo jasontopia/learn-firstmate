@@ -84,6 +84,7 @@
 | digest | 摘要 |
 | board（Lavish board） | 看板 |
 | completion receipt | 回执 |
+| pinned（记忆条目） | 固定 |
 
 ## 分派与 Relay
 
